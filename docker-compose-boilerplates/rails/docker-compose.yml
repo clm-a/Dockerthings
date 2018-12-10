@@ -36,5 +36,5 @@ services:
     volumes:
       - $PWD/db/postgres_data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=$APP_NAME
+      - POSTGRES_DB=rails_app
       - POSTGRES_PASSWORD=password

@@ -1,0 +1,40 @@
+version: '3.6'
+services:
+  rails:
+    build:
+      context: .
+      dockerfile: Dockerfile.rails
+    depends_on:
+      - webpacker
+      - postgres
+    volumes:
+      - $PWD:/app
+    ports:
+     - "3000:3000"
+    command: bundle exec rails s
+    environment:
+      - PG_HOST=postgres
+      - PG_USER=postgres
+      - PG_PWD=password
+      - PG_DB=rails_app
+    env_file: .env
+  webpacker:
+    build:
+      context: .
+    volumes:
+      - $PWD:/app
+    command: ./bin/webpack-dev-server
+    ports:
+      - '3035:3035'
+    environment:
+      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+      - LANG=C.UTF-8
+      - RAILS_LOG_TO_STDOUT=true
+  postgres:
+    image: "postgres:10.3-alpine"
+    ports: ["5432:5432"]
+    volumes:
+      - $PWD/db/postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=rails_app
+      - POSTGRES_PASSWORD=password

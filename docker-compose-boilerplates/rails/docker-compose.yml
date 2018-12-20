@@ -10,6 +10,7 @@ services:
       - $PWD:/app
     ports:
      - "3000:3000"
+    entrypoint: ["bin/sh", "-c"]
     command: bundle exec rails s
     env_file:
       - .env_rails
@@ -23,6 +24,7 @@ services:
       context: .
     volumes:
       - $PWD:/app
+    entrypoint: ["bin/sh", "-c"]
     command: ./bin/webpack-dev-server
     ports:
       - '3035:3035'

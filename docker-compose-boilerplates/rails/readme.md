@@ -34,3 +34,12 @@ Tip : Use Rails debug console with this config in `config/environments/developme
 `  config.web_console.whitelisted_ips = "0.0.0.0/0"`
 
 Ensure `db/postgres_data` folder is present both in `.gitignore` and `.dockerignore` files since it embbeds PostgreSQL container's data (to persist them between containers recreations)
+
+With webpacker enabled, you also may want to disable classic pipeline functionalities :
+```rb
+# config/application.rb
+    config.assets.enabled = false
+    config.generators do |g|
+      g.assets false
+    end
+```

@@ -38,8 +38,8 @@ Ensure `db/postgres_data` folder is present both in `.gitignore` and `.dockerign
 With webpacker enabled, you also may want to disable classic pipeline functionalities :
 ```rb
 # config/application.rb
-    config.assets.enabled = false
-    config.generators do |g|
-      g.assets false
-    end
+config.assets.enabled = false
+config.generators do |g|
+  g.assets false
+end
 ```

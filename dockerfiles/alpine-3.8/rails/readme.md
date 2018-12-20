@@ -34,3 +34,4 @@ You can then start updated image from Step 3
 --------
 
 This Dockerfile plays nice with my [docker-compose rails boilerplate](https://github.com/clm-a/Dockerthings/tree/master/docker-compose-boilerplates/rails) to avoid entrypoints and command overrides
+(Dockerfile in the boilerplate is a copy of the one here)

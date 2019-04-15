@@ -29,6 +29,13 @@ development:
     headers:
       'Access-Control-Allow-Origin': '*'
  ```
+ 
+ You may also need to configure content security policy as :
+```rb
+Rails.application.config.content_security_policy do |policy|
+  policy.connect_src :self, :https, "http://#{ENV['WEBPACK_PUBLIC_HOST']}:3035", "ws://#{ENV['WEBPACK_PUBLIC_HOST']}:3035" if Rails.env.development?
+end
+```
 
 Tip : Use Rails debug console with this config in `config/environments/development.rb`
 `  config.web_console.whitelisted_ips = "0.0.0.0/0"`
@@ -43,3 +50,6 @@ config.generators do |g|
   g.assets false
 end
 ```
+
+
+

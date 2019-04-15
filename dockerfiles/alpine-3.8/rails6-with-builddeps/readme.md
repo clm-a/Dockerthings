@@ -1,4 +1,5 @@
 Creates Rails 6 app keeping builddeps in Apline
+
 Build runtime and docker-compose image with appropriate Dockerfile (not this one)
 
 ```sh

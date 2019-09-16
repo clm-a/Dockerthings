@@ -16,5 +16,3 @@ COPY --from=0 /usr/local/bin/node /usr/local/bin/node
 COPY --from=0 /opt/yarn-v$YARN_VERSION /opt/yarn-v$YARN_VERSION
 RUN ln -s /opt/yarn-v$YARN_VERSION/bin/yarn /usr/local/bin/yarn \
 	  && ln -s /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg
-
-RUN apk add --no-cache tzdata

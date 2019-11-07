@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:3.10
 RUN apk add --no-cache crystal shards
 RUN apk add --no-cache --virtual .icr-rundeps openssl musl-dev
 RUN apk add --no-cache --virtual .icr-builddeps make yaml-dev openssl-dev readline-dev
